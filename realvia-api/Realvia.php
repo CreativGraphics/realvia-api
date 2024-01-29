@@ -40,6 +40,16 @@ class Realvia
         return $this->database->findAll(Realestate::class, $order, $limit);
     }
 
+    public function findRealestate(int $id): ?Realestate
+    {
+        return $this->database->find(Realestate::class, $id);
+    }
+
+    public function findBroker(int $id): ?Realestate
+    {
+        return $this->database->find(Broker::class, $id);
+    }
+
     public function getBrokers(?string $order = null, ?int $limit = null): array
     {
         return $this->database->findAll(Broker::class, $order, $limit);
