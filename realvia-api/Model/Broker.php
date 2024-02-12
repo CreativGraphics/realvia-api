@@ -29,13 +29,13 @@ class Broker extends Base {
     private ?bool $isHidden;
 
     #[Column(type: "varchar", length: 255)]
-    private ?string $nick;
+    private ?string $nick = null;
 
     #[Column(type: "varchar", length: 255)]
-    private ?bool $photo;
+    private ?bool $photo = null;
 
     #[Column(type: "int")]
-    private ?int $branch;
+    private ?int $branch = null;
 
     #[Column(type: "text")]
     private ?string $rawData;
