@@ -22,7 +22,6 @@ class Realvia
     public function __construct()
     {
         $this->database = new Database(DotEnv::get("DB_HOST"), DotEnv::get("DB_PORT"), DotEnv::get("DB_USER"), DotEnv::get("DB_PASS"), DotEnv::get("DB_NAME"));
-        header('Content-Type: application/json');
     }
 
     public function getDatabase(): Database
@@ -45,7 +44,7 @@ class Realvia
         return $this->database->find(Realestate::class, $id);
     }
 
-    public function findBroker(int $id): ?Realestate
+    public function findBroker(int $id): ?Broker
     {
         return $this->database->find(Broker::class, $id);
     }
@@ -64,6 +63,7 @@ class Realvia
 
     public function handleRequest()
     {
+        header('Content-Type: application/json');
         if ($this->logger != null) $this->logger->logRequest();
 
         $method = $_SERVER["REQUEST_METHOD"];

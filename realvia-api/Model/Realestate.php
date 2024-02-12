@@ -48,7 +48,7 @@ class Realestate extends Base {
 
     public function getFormattedPrice(): ?string
     {
-        return number_format($this->price, 2, ",", " ") . " " . $this->currency;
+        return number_format($this->price, 0, ",", " ") . " " . $this->currency;
     }
 
     public function getId(): ?int
@@ -159,12 +159,12 @@ class Realestate extends Base {
         return $this;
     }
 
-    public function getExclusive(): bool
+    public function getExclusive(): ?bool
     {
         return $this->exclusive;
     }
 
-    public function setExclusive(bool $exclusive): self
+    public function setExclusive(?bool $exclusive): self
     {
         $this->exclusive = $exclusive;
 

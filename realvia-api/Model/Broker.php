@@ -29,7 +29,13 @@ class Broker extends Base {
     private ?bool $isHidden;
 
     #[Column(type: "varchar", length: 255)]
-    private ?bool $nick;
+    private ?string $nick;
+
+    #[Column(type: "varchar", length: 255)]
+    private ?bool $photo;
+
+    #[Column(type: "int")]
+    private ?int $branch;
 
     #[Column(type: "text")]
     private ?string $rawData;
@@ -138,6 +144,30 @@ class Broker extends Base {
     public function setNick(?string $nick): self
     {
         $this->nick = $nick;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getBranch(): ?int
+    {
+        return $this->branch;
+    }
+
+    public function setBranch(?int $branch): self
+    {
+        $this->branch = $branch;
 
         return $this;
     }
